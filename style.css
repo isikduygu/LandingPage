@@ -15,6 +15,7 @@ i{
 }
 body{
     margin: 0px;
+    font-family: 'Roboto', sans-serif;
 }
 .home-page{
     background-image: url("background.jpg");
