@@ -1,0 +1,273 @@
+$bg-color: linear-gradient(to right, rgba(255, 166, 0, 0.608) , rgba(255, 0, 0, 0.63));
+$font-family: 'Roboto', sans-serif;
+$text-shadow: -2px 6px 4px black;
+
+@mixin card-box($shadow, $width, $padding, $margin, $border) {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    padding:$padding;
+    margin: $margin;
+    width: $width;
+    box-shadow: $shadow;
+    border: $border;
+}
+@mixin flex($content) {
+    display:flex;
+    justify-content: $content
+}
+@mixin buttons($bg, $border) {
+    color:black;
+    border: $border;
+    background-color: $bg;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      }
+}
+.inputs {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    margin-bottom: 30px;
+    border: none;
+    outline: none;
+    background: transparent;
+    max-width: 100%;
+    min-width: 100%;
+}
+.wrap{
+    display: flex;
+    margin-top:50px;
+    flex-direction: row;
+    justify-content: center;
+    flex-flow: wrap;
+}
+.navbar{
+    @include flex(space-around)
+}
+li {
+    display: inline;
+    margin: 15px;
+}
+.navbar a{
+    text-decoration: none;
+    color:white;
+}
+i{
+    color:white;
+}
+body{
+    margin: 0px;
+    font-family: $font-family;
+}
+.title{
+    text-shadow: $text-shadow;
+}
+.home-page{
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container-text{
+    width: 60%;
+    margin-bottom: 5rem;
+}
+.container-text h1{
+    font-size: 65px;
+}
+.container-text h2{
+    font-size: 30px;
+}
+.container-text p{
+    font-size: 24px;
+}
+.container-text-area{
+    @include flex(center);
+    margin: 5rem 0 0 0;
+    color: white;
+}
+.btn{
+    @include buttons(#fff,none);
+    font-weight: bold;
+}
+.social-media i{
+    margin: 10px;
+}
+.social-media{
+    margin-left:10px;
+    display: contents;
+}
+.container-box{
+    @include card-box(rgba(17, 12, 46, 0.15) 0px 48px 100px 0px, 60%, 20px,0,none);
+    transform: translate(30%, -25%);
+}
+.container-box p {
+    color:gray;
+}
+.featured-page{
+    text-align: center;
+    color: black;
+    background-color: rgba(246, 245, 245, 0.715);
+}
+.featured-page a{
+   text-decoration: none;
+   color: black;
+}
+.feature-work-btn{
+    @include buttons(transparent,none);
+}
+.active{
+    border: 1px solid gray;
+}
+.viewmore, .clients-page button{
+    @include buttons(transparent,(1px solid gray));
+    margin: 20px;
+}
+.cards{
+    @extend .wrap;
+    width: 85%;
+}
+.card{
+    @include card-box(rgba(0, 0, 0, 0.24) 0px 3px 8px, 300px, 0px,20px,none )
+}
+.cards-text{
+    padding:15px;
+    margin-bottom: 25px;
+}
+.cards-text p{
+    color:gray;
+    text-align:left;
+}
+.cards-text li{
+    border:none;
+    background-color: rgb(240, 238, 238);
+    color: black;
+    border-radius: 15px;
+    padding:10px;
+    margin:5px;
+}
+.cards-area{
+    @include flex(center);
+}
+.clients-page{
+    text-align: center;
+    color: black;
+    margin-top:30px;
+}
+.box{
+    @include card-box(none,300px,20px,20px,(1px solid rgba(222, 221, 221, 0.715)))
+}
+.box button{
+    @include buttons(transparent,(1px solid rgba(222, 221, 221, 0.715)));
+    font-weight: bold;
+}
+.box:hover{
+    background-image: $bg-color;
+    color:white;
+    button{
+        color:white;
+    }
+}
+.button-area{
+    @include flex(center);
+    align-items: center;
+}
+.box-img-area{
+    @include flex(center);
+}
+.box p , .whatwedo-page, .contact{
+    text-align: center;
+}
+.wedo-box-area{
+    @extend .wrap;
+}
+.login-box {
+    @include card-box(none, 40%, 40px, 0, (1px solid rgba(222, 221, 221, 0.715)))
+}
+  
+  .login-box .user-box {
+    position: relative;
+  } 
+
+  .login-box .user-box input, .textarea, select{
+    @extend .inputs;
+  }
+  .login-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    font-size: 12px;
+    border-bottom-color: orange;
+  }
+  input, select{
+    border-bottom: 1px solid gray !important;
+  }
+  input:focus, select:focus{
+    border-bottom: 3px solid orange !important;
+  }
+  .send{
+    background-image: $bg-color;
+    @include card-box(rgba(194, 34, 34, 0.24) 0px 3px 8px, 100%,0,0px,none);
+    border:none;
+    height: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    color:white;
+  }
+  .send:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+.footer a{
+    text-decoration: none;
+    color: orange;
+}
+.footer i {
+    color: gray;
+}
+.footer p {
+    width: 30%;
+}
+.footer-text-area {
+    @include flex(center);
+}
+.mobile-menu{
+    display: none;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+.get-touch{
+    margin-bottom: 50px;
+    margin-top: 50px
+}
+@media screen and (max-width: 800px) {
+    .mobile-menu{
+        display: block;
+    }
+    .menu{
+        display:none;
+    }
+    .navbar{
+        justify-content: space-between;
+    }
+    .container-text h1{
+        font-size: 49px;
+    }
+  }
